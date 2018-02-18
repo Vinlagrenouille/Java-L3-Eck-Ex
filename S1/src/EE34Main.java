@@ -1,18 +1,24 @@
 import java.util.Scanner;
 
-public class Ex34 {
+public class EE34Main {
 
 	public static void discard(String stc) {
 		char prev = '.';
 		char ances = '.';
 		for (char c : stc.toCharArray()) {
+			if (prev == '\'' && 
+					((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) && 
+					((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))){
+				System.out.print(prev);
+			}
 			if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
 				System.out.print(c);
 			}
-			else {
+			else if (c != '\''){				
 				System.out.println("");
 			}
-			
+			ances = prev;
+			prev = c;			
 		}
 	}
 	
